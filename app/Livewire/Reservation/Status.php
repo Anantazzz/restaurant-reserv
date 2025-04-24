@@ -8,6 +8,10 @@ class Status extends Component
 {
     public function render()
     {
-        return view('livewire.reservation.status');
+        // Ambil data reservasi dari session
+        $reservation = session('reservation');
+
+        return view('livewire.reservation.status', compact('reservation'));
     }
 }
+

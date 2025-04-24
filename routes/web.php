@@ -9,6 +9,7 @@ use App\Livewire\Menu\Index as MenuIndex;
 use App\Livewire\Menu\Show as MenuShow;
 use App\Livewire\Cart\Index as CartIndex;
 use App\Livewire\Cart\Checkout as CartCheckout;
+use App\Livewire\Reservation\Index;
 use App\Livewire\Reservation\Form as ReservationForm;
 use App\Livewire\Reservation\Status as ReservationStatus;
 use App\Livewire\Transaction\Index as TransactionIndex;
@@ -46,8 +47,9 @@ Route::get('/cart', CartIndex::class);
 Route::get('/checkout', CartCheckout::class);
 
 // RESERVASI
-Route::get('/reservation', ReservationForm::class);
-Route::get('/reservation/status', ReservationStatus::class);
+Route::get('/reservation', Index::class)->name('reservation.index'); // Ini yang pertama kali muncul
+Route::get('/reservation/form', ReservationForm::class)->name('reservation.form'); 
+Route::get('/reservation/status', ReservationStatus::class)->name('reservation.status');// Ini yang menampilkan form
 
 // TRANSAKSI USER
 Route::get('/transactions', TransactionIndex::class);
